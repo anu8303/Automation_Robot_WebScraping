@@ -1,0 +1,888 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.2 on win32)" generated="2025-03-21T13:29:19.720579" rpa="false" schemaversion="5">
+<suite id="s1" name="Player Automation" source="C:\Users\anu83\OneDrive\Desktop\robot_assignment\player_automation.robot">
+<test id="s1-t1" name="Scrape Player Data and Submit Form" line="30">
+<kw name="Open Browser To Player Page">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-03-21T13:29:21.167282" level="INFO">Opening browser 'Chrome' to base url 'https://hoopshype.com/salaries/players/'.</msg>
+<arg>${PLAYER_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-03-21T13:29:21.166268" elapsed="45.727459"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-03-21T13:30:06.895518" elapsed="0.573144"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${NAME_XPATH}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-21T13:30:07.469294" elapsed="0.713880"/>
+</kw>
+<status status="PASS" start="2025-03-21T13:29:21.163999" elapsed="47.019520"/>
+</kw>
+<kw name="Get Player Names">
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-03-21T13:30:08.780456" level="INFO">${elements} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="7ba081f6a38965cdc1cdbb168ec6e785", element="f.2887440507CB69CBB8FEE5E2CFEC22DA.d.FCF182D711C4F2261BEB46F0A3C13A1B.e.954")&gt;, &lt;selenium.webdri...</msg>
+<var>${elements}</var>
+<arg>${NAME_XPATH}</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-03-21T13:30:08.187313" elapsed="0.593339"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-03-21T13:30:08.781777" level="INFO">${names} = []</msg>
+<var>${names}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-03-21T13:30:08.781213" elapsed="0.000673"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-03-21T13:30:09.234164" level="INFO">${raw_name} = Stephen Curry</msg>
+<var>${raw_name}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-21T13:30:08.783186" elapsed="0.451214"/>
+</kw>
+<kw name="Strip String" owner="String">
+<msg time="2025-03-21T13:30:09.235523" level="INFO">${clean_name} = Stephen Curry</msg>
+<var>${clean_name}</var>
+<arg>${raw_name}</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.234902" elapsed="0.000729"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${names}</arg>
+<arg>${clean_name}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.235992" elapsed="0.000565"/>
+</kw>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="7ba081f6a38965cdc1cdbb168ec6e785", element="f.2887440507CB69CBB8FEE5E2CFEC22DA.d.FCF182D711C4F2261BEB46F0A3C13A1B.e.958")&gt;</var>
+<status status="PASS" start="2025-03-21T13:30:08.782819" elapsed="0.453954"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-03-21T13:30:09.292216" level="INFO">${raw_name} = Nikola Jokic</msg>
+<var>${raw_name}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.237720" elapsed="0.054666"/>
+</kw>
+<kw name="Strip String" owner="String">
+<msg time="2025-03-21T13:30:09.293577" level="INFO">${clean_name} = Nikola Jokic</msg>
+<var>${clean_name}</var>
+<arg>${raw_name}</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.292900" elapsed="0.000820"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${names}</arg>
+<arg>${clean_name}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.294181" elapsed="0.000530"/>
+</kw>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="7ba081f6a38965cdc1cdbb168ec6e785", element="f.2887440507CB69CBB8FEE5E2CFEC22DA.d.FCF182D711C4F2261BEB46F0A3C13A1B.e.962")&gt;</var>
+<status status="PASS" start="2025-03-21T13:30:09.237331" elapsed="0.057594"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-03-21T13:30:09.327745" level="INFO">${raw_name} = Joel Embiid</msg>
+<var>${raw_name}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.295915" elapsed="0.032153"/>
+</kw>
+<kw name="Strip String" owner="String">
+<msg time="2025-03-21T13:30:09.330146" level="INFO">${clean_name} = Joel Embiid</msg>
+<var>${clean_name}</var>
+<arg>${raw_name}</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.329277" elapsed="0.001024"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${names}</arg>
+<arg>${clean_name}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.330769" elapsed="0.000715"/>
+</kw>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="7ba081f6a38965cdc1cdbb168ec6e785", element="f.2887440507CB69CBB8FEE5E2CFEC22DA.d.FCF182D711C4F2261BEB46F0A3C13A1B.e.966")&gt;</var>
+<status status="PASS" start="2025-03-21T13:30:09.295463" elapsed="0.036224"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-03-21T13:30:09.393737" level="INFO">${raw_name} = Kevin Durant</msg>
+<var>${raw_name}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.332457" elapsed="0.061418"/>
+</kw>
+<kw name="Strip String" owner="String">
+<msg time="2025-03-21T13:30:09.395688" level="INFO">${clean_name} = Kevin Durant</msg>
+<var>${clean_name}</var>
+<arg>${raw_name}</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.394411" elapsed="0.001400"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${names}</arg>
+<arg>${clean_name}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.396463" elapsed="0.000563"/>
+</kw>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="7ba081f6a38965cdc1cdbb168ec6e785", element="f.2887440507CB69CBB8FEE5E2CFEC22DA.d.FCF182D711C4F2261BEB46F0A3C13A1B.e.970")&gt;</var>
+<status status="PASS" start="2025-03-21T13:30:09.332108" elapsed="0.065093"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-03-21T13:30:09.443620" level="INFO">${raw_name} = Bradley Beal</msg>
+<var>${raw_name}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.398795" elapsed="0.044962"/>
+</kw>
+<kw name="Strip String" owner="String">
+<msg time="2025-03-21T13:30:09.445549" level="INFO">${clean_name} = Bradley Beal</msg>
+<var>${clean_name}</var>
+<arg>${raw_name}</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.444313" elapsed="0.001363"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${names}</arg>
+<arg>${clean_name}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.446225" elapsed="0.001205"/>
+</kw>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="7ba081f6a38965cdc1cdbb168ec6e785", element="f.2887440507CB69CBB8FEE5E2CFEC22DA.d.FCF182D711C4F2261BEB46F0A3C13A1B.e.5691")&gt;</var>
+<status status="PASS" start="2025-03-21T13:30:09.398043" elapsed="0.050096"/>
+</iter>
+<var>${element}</var>
+<value>@{elements}[1:6]</value>
+<status status="PASS" start="2025-03-21T13:30:08.782154" elapsed="0.666788"/>
+</for>
+<return>
+<value>${names}</value>
+<status status="PASS" start="2025-03-21T13:30:09.449304" elapsed="0.000240"/>
+</return>
+<msg time="2025-03-21T13:30:09.450200" level="INFO">${names} = ['Stephen Curry', 'Nikola Jokic', 'Joel Embiid', 'Kevin Durant', 'Bradley Beal']</msg>
+<var>${names}</var>
+<status status="PASS" start="2025-03-21T13:30:08.185253" elapsed="1.265067"/>
+</kw>
+<kw name="Get Player Salaries">
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-03-21T13:30:09.602652" level="INFO">${elements} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="7ba081f6a38965cdc1cdbb168ec6e785", element="f.2887440507CB69CBB8FEE5E2CFEC22DA.d.FCF182D711C4F2261BEB46F0A3C13A1B.e.955")&gt;, &lt;selenium.webdri...</msg>
+<var>${elements}</var>
+<arg>${SALARY_XPATH}</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.452898" elapsed="0.149902"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-03-21T13:30:09.603609" level="INFO">${salaries} = []</msg>
+<var>${salaries}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.603198" elapsed="0.000483"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-03-21T13:30:09.640411" level="INFO">${salary} = $55,761,217</msg>
+<var>${salary}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.604811" elapsed="0.035745"/>
+</kw>
+<kw name="Remove String" owner="String">
+<msg time="2025-03-21T13:30:09.641940" level="INFO">${cleaned_salary} = 55761217</msg>
+<var>${cleaned_salary}</var>
+<arg>${salary}</arg>
+<arg>$</arg>
+<arg>,</arg>
+<arg>spaces=${True}</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.641068" elapsed="0.000976"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${salaries}</arg>
+<arg>${cleaned_salary}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.642459" elapsed="0.000511"/>
+</kw>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="7ba081f6a38965cdc1cdbb168ec6e785", element="f.2887440507CB69CBB8FEE5E2CFEC22DA.d.FCF182D711C4F2261BEB46F0A3C13A1B.e.959")&gt;</var>
+<status status="PASS" start="2025-03-21T13:30:09.604406" elapsed="0.038745"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-03-21T13:30:09.676821" level="INFO">${salary} = $51,415,938</msg>
+<var>${salary}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.643889" elapsed="0.033045"/>
+</kw>
+<kw name="Remove String" owner="String">
+<msg time="2025-03-21T13:30:09.677988" level="INFO">${cleaned_salary} = 51415938</msg>
+<var>${cleaned_salary}</var>
+<arg>${salary}</arg>
+<arg>$</arg>
+<arg>,</arg>
+<arg>spaces=${True}</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.677338" elapsed="0.000726"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${salaries}</arg>
+<arg>${cleaned_salary}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.678525" elapsed="0.000810"/>
+</kw>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="7ba081f6a38965cdc1cdbb168ec6e785", element="f.2887440507CB69CBB8FEE5E2CFEC22DA.d.FCF182D711C4F2261BEB46F0A3C13A1B.e.963")&gt;</var>
+<status status="PASS" start="2025-03-21T13:30:09.643578" elapsed="0.036005"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-03-21T13:30:09.705433" level="INFO">${salary} = $51,415,938</msg>
+<var>${salary}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.680289" elapsed="0.025288"/>
+</kw>
+<kw name="Remove String" owner="String">
+<msg time="2025-03-21T13:30:09.706786" level="INFO">${cleaned_salary} = 51415938</msg>
+<var>${cleaned_salary}</var>
+<arg>${salary}</arg>
+<arg>$</arg>
+<arg>,</arg>
+<arg>spaces=${True}</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.706077" elapsed="0.000803"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${salaries}</arg>
+<arg>${cleaned_salary}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.707310" elapsed="0.000460"/>
+</kw>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="7ba081f6a38965cdc1cdbb168ec6e785", element="f.2887440507CB69CBB8FEE5E2CFEC22DA.d.FCF182D711C4F2261BEB46F0A3C13A1B.e.967")&gt;</var>
+<status status="PASS" start="2025-03-21T13:30:09.679981" elapsed="0.027949"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-03-21T13:30:09.742307" level="INFO">${salary} = $51,179,020</msg>
+<var>${salary}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.708925" elapsed="0.033568"/>
+</kw>
+<kw name="Remove String" owner="String">
+<msg time="2025-03-21T13:30:09.744159" level="INFO">${cleaned_salary} = 51179020</msg>
+<var>${cleaned_salary}</var>
+<arg>${salary}</arg>
+<arg>$</arg>
+<arg>,</arg>
+<arg>spaces=${True}</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.743249" elapsed="0.001015"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${salaries}</arg>
+<arg>${cleaned_salary}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.744677" elapsed="0.000641"/>
+</kw>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="7ba081f6a38965cdc1cdbb168ec6e785", element="f.2887440507CB69CBB8FEE5E2CFEC22DA.d.FCF182D711C4F2261BEB46F0A3C13A1B.e.971")&gt;</var>
+<status status="PASS" start="2025-03-21T13:30:09.708333" elapsed="0.037143"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-03-21T13:30:09.778257" level="INFO">${salary} = $50,203,930</msg>
+<var>${salary}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.746514" elapsed="0.031911"/>
+</kw>
+<kw name="Remove String" owner="String">
+<msg time="2025-03-21T13:30:09.779974" level="INFO">${cleaned_salary} = 50203930</msg>
+<var>${cleaned_salary}</var>
+<arg>${salary}</arg>
+<arg>$</arg>
+<arg>,</arg>
+<arg>spaces=${True}</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.778991" elapsed="0.001110"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${salaries}</arg>
+<arg>${cleaned_salary}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.780817" elapsed="0.000839"/>
+</kw>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="7ba081f6a38965cdc1cdbb168ec6e785", element="f.2887440507CB69CBB8FEE5E2CFEC22DA.d.FCF182D711C4F2261BEB46F0A3C13A1B.e.5693")&gt;</var>
+<status status="PASS" start="2025-03-21T13:30:09.745887" elapsed="0.036020"/>
+</iter>
+<var>${element}</var>
+<value>@{elements}[1:6]</value>
+<status status="PASS" start="2025-03-21T13:30:09.603935" elapsed="0.178165"/>
+</for>
+<return>
+<value>${salaries}</value>
+<status status="PASS" start="2025-03-21T13:30:09.782393" elapsed="0.000222"/>
+</return>
+<msg time="2025-03-21T13:30:09.783451" level="INFO">${salaries} = ['55761217', '51415938', '51415938', '51179020', '50203930']</msg>
+<var>${salaries}</var>
+<status status="PASS" start="2025-03-21T13:30:09.451694" elapsed="0.332300"/>
+</kw>
+<kw name="Create CSV File">
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-03-21T13:30:09.790587" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\anu83\OneDrive\Desktop\robot_assignment\player_salaries.csv"&gt;C:\Users\anu83\OneDrive\Desktop\robot_assignment\player_salaries.csv&lt;/a&gt;'.</msg>
+<arg>${CSV_PATH}</arg>
+<arg>Name,Salary\n</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.786417" elapsed="0.004531"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-03-21T13:30:09.793291" level="INFO">${name} = Stephen Curry</msg>
+<var>${name}</var>
+<arg>${names}</arg>
+<arg>${index}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.792493" elapsed="0.000920"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-03-21T13:30:09.794577" level="INFO">${salary} = 55761217</msg>
+<var>${salary}</var>
+<arg>${salaries}</arg>
+<arg>${index}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.793912" elapsed="0.000772"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-03-21T13:30:09.798011" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\anu83\OneDrive\Desktop\robot_assignment\player_salaries.csv"&gt;C:\Users\anu83\OneDrive\Desktop\robot_assignment\player_salaries.csv&lt;/a&gt;'.</msg>
+<arg>${CSV_PATH}</arg>
+<arg>${name},${salary}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.795101" elapsed="0.003163"/>
+</kw>
+<var name="${index}">0</var>
+<status status="PASS" start="2025-03-21T13:30:09.792118" elapsed="0.006373"/>
+</iter>
+<iter>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-03-21T13:30:09.800081" level="INFO">${name} = Nikola Jokic</msg>
+<var>${name}</var>
+<arg>${names}</arg>
+<arg>${index}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.799198" elapsed="0.001000"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-03-21T13:30:09.801423" level="INFO">${salary} = 51415938</msg>
+<var>${salary}</var>
+<arg>${salaries}</arg>
+<arg>${index}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.800692" elapsed="0.000845"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-03-21T13:30:09.804873" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\anu83\OneDrive\Desktop\robot_assignment\player_salaries.csv"&gt;C:\Users\anu83\OneDrive\Desktop\robot_assignment\player_salaries.csv&lt;/a&gt;'.</msg>
+<arg>${CSV_PATH}</arg>
+<arg>${name},${salary}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.801974" elapsed="0.003219"/>
+</kw>
+<var name="${index}">1</var>
+<status status="PASS" start="2025-03-21T13:30:09.798883" elapsed="0.006533"/>
+</iter>
+<iter>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-03-21T13:30:09.806975" level="INFO">${name} = Joel Embiid</msg>
+<var>${name}</var>
+<arg>${names}</arg>
+<arg>${index}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.806264" elapsed="0.000824"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-03-21T13:30:09.808153" level="INFO">${salary} = 51415938</msg>
+<var>${salary}</var>
+<arg>${salaries}</arg>
+<arg>${index}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.807532" elapsed="0.000743"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-03-21T13:30:09.818177" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\anu83\OneDrive\Desktop\robot_assignment\player_salaries.csv"&gt;C:\Users\anu83\OneDrive\Desktop\robot_assignment\player_salaries.csv&lt;/a&gt;'.</msg>
+<arg>${CSV_PATH}</arg>
+<arg>${name},${salary}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.808695" elapsed="0.009761"/>
+</kw>
+<var name="${index}">2</var>
+<status status="PASS" start="2025-03-21T13:30:09.805901" elapsed="0.012761"/>
+</iter>
+<iter>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-03-21T13:30:09.820031" level="INFO">${name} = Kevin Durant</msg>
+<var>${name}</var>
+<arg>${names}</arg>
+<arg>${index}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.819448" elapsed="0.000679"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-03-21T13:30:09.821065" level="INFO">${salary} = 51179020</msg>
+<var>${salary}</var>
+<arg>${salaries}</arg>
+<arg>${index}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.820480" elapsed="0.000676"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-03-21T13:30:09.824017" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\anu83\OneDrive\Desktop\robot_assignment\player_salaries.csv"&gt;C:\Users\anu83\OneDrive\Desktop\robot_assignment\player_salaries.csv&lt;/a&gt;'.</msg>
+<arg>${CSV_PATH}</arg>
+<arg>${name},${salary}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.821488" elapsed="0.002747"/>
+</kw>
+<var name="${index}">3</var>
+<status status="PASS" start="2025-03-21T13:30:09.819122" elapsed="0.005672"/>
+</iter>
+<iter>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-03-21T13:30:09.826232" level="INFO">${name} = Bradley Beal</msg>
+<var>${name}</var>
+<arg>${names}</arg>
+<arg>${index}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.825512" elapsed="0.001387"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-03-21T13:30:09.827995" level="INFO">${salary} = 50203930</msg>
+<var>${salary}</var>
+<arg>${salaries}</arg>
+<arg>${index}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.827372" elapsed="0.000725"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-03-21T13:30:09.831098" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\anu83\OneDrive\Desktop\robot_assignment\player_salaries.csv"&gt;C:\Users\anu83\OneDrive\Desktop\robot_assignment\player_salaries.csv&lt;/a&gt;'.</msg>
+<arg>${CSV_PATH}</arg>
+<arg>${name},${salary}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.828449" elapsed="0.002938"/>
+</kw>
+<var name="${index}">4</var>
+<status status="PASS" start="2025-03-21T13:30:09.825202" elapsed="0.006628"/>
+</iter>
+<var>${index}</var>
+<value>0</value>
+<value>5</value>
+<status status="PASS" start="2025-03-21T13:30:09.791340" elapsed="0.040738"/>
+</for>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-21T13:30:09.833476" level="INFO">CSV file created at player_salaries.csv</msg>
+<arg>CSV file created at ${CSV_PATH}</arg>
+<arg>console=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.832806" elapsed="0.006621"/>
+</kw>
+<arg>${names}</arg>
+<arg>${salaries}</arg>
+<status status="PASS" start="2025-03-21T13:30:09.785328" elapsed="0.054496"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-03-21T13:30:09.840642" elapsed="3.326089"/>
+</kw>
+<kw name="Open Browser To Form Page">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-03-21T13:30:13.168904" level="INFO">Opening browser 'Chrome' to base url 'https://selenium-practice.netlify.app/'.</msg>
+<arg>${FORM_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-03-21T13:30:13.168420" elapsed="4.453053"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-03-21T13:30:17.622080" elapsed="0.090984"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${NAME_INPUT}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-21T13:30:17.713575" elapsed="0.071850"/>
+</kw>
+<status status="PASS" start="2025-03-21T13:30:13.167764" elapsed="4.617993"/>
+</kw>
+<kw name="Submit Player Data From CSV">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-03-21T13:30:17.788431" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\anu83\OneDrive\Desktop\robot_assignment\player_salaries.csv"&gt;C:\Users\anu83\OneDrive\Desktop\robot_assignment\player_salaries.csv&lt;/a&gt;'.</msg>
+<msg time="2025-03-21T13:30:17.816789" level="INFO">${data} = Name,Salary
+Stephen Curry,55761217
+Nikola Jokic,51415938
+Joel Embiid,51415938
+Kevin Durant,51179020
+Bradley Beal,50203930
+</msg>
+<var>${data}</var>
+<arg>${CSV_PATH}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-03-21T13:30:17.788017" elapsed="0.028909"/>
+</kw>
+<kw name="Split To Lines" owner="String">
+<msg time="2025-03-21T13:30:17.817932" level="INFO">6 lines returned</msg>
+<msg time="2025-03-21T13:30:17.818167" level="INFO">@{rows} = [ Name,Salary | Stephen Curry,55761217 | Nikola Jokic,51415938 | Joel Embiid,51415938 | Kevin Durant,51179020 | Bradley Beal,50203930 ]</msg>
+<var>@{rows}</var>
+<arg>${data}</arg>
+<doc>Splits the given string to lines.</doc>
+<status status="PASS" start="2025-03-21T13:30:17.817521" elapsed="0.000711"/>
+</kw>
+<kw name="Remove From List" owner="Collections">
+<arg>${rows}</arg>
+<arg>0</arg>
+<doc>Removes and returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-03-21T13:30:17.818746" elapsed="0.000370"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-21T13:30:17.821569" level="INFO">${index} = 0</msg>
+<var>${index}</var>
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-21T13:30:17.821156" elapsed="0.000484"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Split String" owner="String">
+<msg time="2025-03-21T13:30:17.827709" level="INFO">@{columns} = [ Stephen Curry | 55761217 ]</msg>
+<var>@{columns}</var>
+<arg>${row}</arg>
+<arg>,</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-03-21T13:30:17.822543" elapsed="0.005322"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-21T13:30:17.829497" level="INFO">${player_name} = Stephen Curry</msg>
+<var>${player_name}</var>
+<arg>${columns}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-21T13:30:17.828715" elapsed="0.001165"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-03-21T13:30:17.833602" level="INFO">${dob} = 01-Jan-1981</msg>
+<var>${dob}</var>
+<arg>${DOB_LIST}</arg>
+<arg>${index}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-03-21T13:30:17.830919" elapsed="0.002987"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-21T13:30:17.835703" level="INFO">Typing text 'Stephen Curry' into text field '//input[@id='name']'.</msg>
+<arg>${NAME_INPUT}</arg>
+<arg>${player_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-21T13:30:17.834577" elapsed="0.409864"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-21T13:30:18.246232" level="INFO">Typing text '01-Jan-1981' into text field '//input[@id='date']'.</msg>
+<arg>${DOB_INPUT}</arg>
+<arg>${dob}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-21T13:30:18.245250" elapsed="0.251444"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-03-21T13:30:18.497791" level="INFO">Clicking button '//button[@type='submit']'.</msg>
+<arg>${SUBMIT_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-21T13:30:18.497169" elapsed="0.218015"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-21T13:30:18.716368" level="INFO">Submitted: Stephen Curry with DOB 01-Jan-1981</msg>
+<arg>Submitted: ${player_name} with DOB ${dob}</arg>
+<arg>console=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-21T13:30:18.715534" elapsed="0.002181"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-03-21T13:30:18.719131" level="INFO">${index} = 1</msg>
+<var>${index}</var>
+<arg>${index} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-03-21T13:30:18.718255" elapsed="0.000987"/>
+</kw>
+<var name="${row}">Stephen Curry,55761217</var>
+<status status="PASS" start="2025-03-21T13:30:17.822302" elapsed="0.897102"/>
+</iter>
+<iter>
+<kw name="Split String" owner="String">
+<msg time="2025-03-21T13:30:18.720894" level="INFO">@{columns} = [ Nikola Jokic | 51415938 ]</msg>
+<var>@{columns}</var>
+<arg>${row}</arg>
+<arg>,</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-03-21T13:30:18.720187" elapsed="0.000823"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-21T13:30:18.721873" level="INFO">${player_name} = Nikola Jokic</msg>
+<var>${player_name}</var>
+<arg>${columns}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-21T13:30:18.721379" elapsed="0.000573"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-03-21T13:30:18.722811" level="INFO">${dob} = 01-Feb-1982</msg>
+<var>${dob}</var>
+<arg>${DOB_LIST}</arg>
+<arg>${index}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-03-21T13:30:18.722266" elapsed="0.000631"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-21T13:30:18.723663" level="INFO">Typing text 'Nikola Jokic' into text field '//input[@id='name']'.</msg>
+<arg>${NAME_INPUT}</arg>
+<arg>${player_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-21T13:30:18.723200" elapsed="0.321917"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-21T13:30:19.046716" level="INFO">Typing text '01-Feb-1982' into text field '//input[@id='date']'.</msg>
+<arg>${DOB_INPUT}</arg>
+<arg>${dob}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-21T13:30:19.045740" elapsed="0.198568"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-03-21T13:30:19.245287" level="INFO">Clicking button '//button[@type='submit']'.</msg>
+<arg>${SUBMIT_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-21T13:30:19.244737" elapsed="0.246669"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-21T13:30:19.492344" level="INFO">Submitted: Nikola Jokic with DOB 01-Feb-1982</msg>
+<arg>Submitted: ${player_name} with DOB ${dob}</arg>
+<arg>console=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-21T13:30:19.491832" elapsed="0.001261"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-03-21T13:30:19.494522" level="INFO">${index} = 2</msg>
+<var>${index}</var>
+<arg>${index} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-03-21T13:30:19.493895" elapsed="0.000718"/>
+</kw>
+<var name="${row}">Nikola Jokic,51415938</var>
+<status status="PASS" start="2025-03-21T13:30:18.719872" elapsed="0.774939"/>
+</iter>
+<iter>
+<kw name="Split String" owner="String">
+<msg time="2025-03-21T13:30:19.496059" level="INFO">@{columns} = [ Joel Embiid | 51415938 ]</msg>
+<var>@{columns}</var>
+<arg>${row}</arg>
+<arg>,</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-03-21T13:30:19.495607" elapsed="0.000515"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-21T13:30:19.496708" level="INFO">${player_name} = Joel Embiid</msg>
+<var>${player_name}</var>
+<arg>${columns}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-21T13:30:19.496356" elapsed="0.000844"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-03-21T13:30:19.499177" level="INFO">${dob} = 23-Mar-1976</msg>
+<var>${dob}</var>
+<arg>${DOB_LIST}</arg>
+<arg>${index}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-03-21T13:30:19.498230" elapsed="0.001051"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-21T13:30:19.500398" level="INFO">Typing text 'Joel Embiid' into text field '//input[@id='name']'.</msg>
+<arg>${NAME_INPUT}</arg>
+<arg>${player_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-21T13:30:19.499696" elapsed="0.298351"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-21T13:30:19.799405" level="INFO">Typing text '23-Mar-1976' into text field '//input[@id='date']'.</msg>
+<arg>${DOB_INPUT}</arg>
+<arg>${dob}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-21T13:30:19.798584" elapsed="0.278274"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-03-21T13:30:20.077918" level="INFO">Clicking button '//button[@type='submit']'.</msg>
+<arg>${SUBMIT_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-21T13:30:20.077312" elapsed="0.224868"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-21T13:30:20.303280" level="INFO">Submitted: Joel Embiid with DOB 23-Mar-1976</msg>
+<arg>Submitted: ${player_name} with DOB ${dob}</arg>
+<arg>console=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-21T13:30:20.302676" elapsed="0.001656"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-03-21T13:30:20.305725" level="INFO">${index} = 3</msg>
+<var>${index}</var>
+<arg>${index} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-03-21T13:30:20.304951" elapsed="0.000854"/>
+</kw>
+<var name="${row}">Joel Embiid,51415938</var>
+<status status="PASS" start="2025-03-21T13:30:19.495245" elapsed="0.810715"/>
+</iter>
+<iter>
+<kw name="Split String" owner="String">
+<msg time="2025-03-21T13:30:20.307186" level="INFO">@{columns} = [ Kevin Durant | 51179020 ]</msg>
+<var>@{columns}</var>
+<arg>${row}</arg>
+<arg>,</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-03-21T13:30:20.306673" elapsed="0.000587"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-21T13:30:20.307935" level="INFO">${player_name} = Kevin Durant</msg>
+<var>${player_name}</var>
+<arg>${columns}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-21T13:30:20.307557" elapsed="0.000433"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-03-21T13:30:20.308593" level="INFO">${dob} = 01-Sep-1978</msg>
+<var>${dob}</var>
+<arg>${DOB_LIST}</arg>
+<arg>${index}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-03-21T13:30:20.308196" elapsed="0.000458"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-21T13:30:20.309353" level="INFO">Typing text 'Kevin Durant' into text field '//input[@id='name']'.</msg>
+<arg>${NAME_INPUT}</arg>
+<arg>${player_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-21T13:30:20.308928" elapsed="0.327044"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-21T13:30:20.637783" level="INFO">Typing text '01-Sep-1978' into text field '//input[@id='date']'.</msg>
+<arg>${DOB_INPUT}</arg>
+<arg>${dob}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-21T13:30:20.637038" elapsed="0.268163"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-03-21T13:30:20.906389" level="INFO">Clicking button '//button[@type='submit']'.</msg>
+<arg>${SUBMIT_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-21T13:30:20.905730" elapsed="0.244676"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-21T13:30:21.151796" level="INFO">Submitted: Kevin Durant with DOB 01-Sep-1978</msg>
+<arg>Submitted: ${player_name} with DOB ${dob}</arg>
+<arg>console=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-21T13:30:21.151031" elapsed="0.001632"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-03-21T13:30:21.153947" level="INFO">${index} = 4</msg>
+<var>${index}</var>
+<arg>${index} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-03-21T13:30:21.153142" elapsed="0.000906"/>
+</kw>
+<var name="${row}">Kevin Durant,51179020</var>
+<status status="PASS" start="2025-03-21T13:30:20.306317" elapsed="0.847942"/>
+</iter>
+<iter>
+<kw name="Split String" owner="String">
+<msg time="2025-03-21T13:30:21.155530" level="INFO">@{columns} = [ Bradley Beal | 50203930 ]</msg>
+<var>@{columns}</var>
+<arg>${row}</arg>
+<arg>,</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-03-21T13:30:21.154978" elapsed="0.000640"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-21T13:30:21.156507" level="INFO">${player_name} = Bradley Beal</msg>
+<var>${player_name}</var>
+<arg>${columns}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-21T13:30:21.155966" elapsed="0.000627"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-03-21T13:30:21.157470" level="INFO">${dob} = 03-Jul-1945</msg>
+<var>${dob}</var>
+<arg>${DOB_LIST}</arg>
+<arg>${index}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-03-21T13:30:21.156962" elapsed="0.000593"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-21T13:30:21.158577" level="INFO">Typing text 'Bradley Beal' into text field '//input[@id='name']'.</msg>
+<arg>${NAME_INPUT}</arg>
+<arg>${player_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-21T13:30:21.157919" elapsed="0.308167"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-21T13:30:21.467674" level="INFO">Typing text '03-Jul-1945' into text field '//input[@id='date']'.</msg>
+<arg>${DOB_INPUT}</arg>
+<arg>${dob}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-21T13:30:21.466830" elapsed="0.213638"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-03-21T13:30:21.681538" level="INFO">Clicking button '//button[@type='submit']'.</msg>
+<arg>${SUBMIT_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-21T13:30:21.680943" elapsed="0.269501"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-21T13:30:21.951703" level="INFO">Submitted: Bradley Beal with DOB 03-Jul-1945</msg>
+<arg>Submitted: ${player_name} with DOB ${dob}</arg>
+<arg>console=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-21T13:30:21.950967" elapsed="0.001525"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-03-21T13:30:21.953807" level="INFO">${index} = 5</msg>
+<var>${index}</var>
+<arg>${index} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-03-21T13:30:21.953046" elapsed="0.000856"/>
+</kw>
+<var name="${row}">Bradley Beal,50203930</var>
+<status status="PASS" start="2025-03-21T13:30:21.154672" elapsed="0.799385"/>
+</iter>
+<var>${row}</var>
+<value>@{rows}</value>
+<status status="PASS" start="2025-03-21T13:30:17.821832" elapsed="4.132376"/>
+</for>
+<status status="PASS" start="2025-03-21T13:30:17.787152" elapsed="4.167336"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-03-21T13:30:21.955411" elapsed="2.641656"/>
+</kw>
+<doc>Scrape first 5 players' data, save to CSV, and submit the form</doc>
+<status status="PASS" start="2025-03-21T13:29:21.162512" elapsed="63.435190"/>
+</test>
+<doc>Web scraping and form submission using Robot Framework</doc>
+<status status="PASS" start="2025-03-21T13:29:19.727178" elapsed="64.873226"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Player Automation" id="s1" pass="1" fail="0" skip="0">Player Automation</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
