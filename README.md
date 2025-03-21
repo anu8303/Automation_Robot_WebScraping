@@ -28,15 +28,15 @@ This project automates:
 ## Installation Dependencies
 - pip install robotframework-seleniumlibrary
   
-##Setup & Execution
--Clone the repository: git clone https://github.com/your-username/web-scraping-robot.git
+## Setup & Execution
+- Clone the repository: git clone https://github.com/your-username/web-scraping-robot.git
 cd web-scraping-robot
--Run the automation script: robot web_scraping.robot
+- Run the automation script: robot web_scraping.robot
 
-##File Structure
+## File Structure
 
 📂 web-scraping-robot
- ├── web_scraping.robot    # Main Robot Framework script
- ├── player_salaries.csv   # CSV file storing scraped data
- ├── README.md             # Project documentation
+ ├──  web_scraping.robot    # Main Robot Framework script
+ ├──  player_salaries.csv   # CSV file storing scraped data
+ ├──  README.md             # Project documentation
 
